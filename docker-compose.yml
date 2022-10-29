@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:13-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=flask_app
+    networks:
+      - web_network
+
+  web:
+    container_name: flask-orm
+    build:
+      context: .
+    
+    # command: python3 manage.py 
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+    depends_on:
+      - postgres
+    links:
+      - postgres:postgres
+    env_file:
+      - ./.flaskenv
+      
+    entrypoint: /app/entrypoint.sh
+    networks:
+      - web_network
+  
+
+volumes:
+  postgres_data: ~
+
+networks:
+  web_network:
+    driver: bridge
