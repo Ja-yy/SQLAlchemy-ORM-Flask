@@ -31,7 +31,7 @@ docker-compose up -d --build
 ```
 ## Flask Port
 
-http://0.0.0.0:8000
+* http://0.0.0.0:8000
 
 ## Routes
 
