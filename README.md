@@ -36,7 +36,7 @@ http://0.0.0.0:8000
 ## Routes
 
 * register user-`post` -> http://0.0.0.0:8000/api/v1/auth/register
-* to login-`post` -> http://0.0.0.0:8000/api/v1/auth/login] -> 
+* to login-`post` -> http://0.0.0.0:8000/api/v1/auth/login 
 * to get refresh token-`post` -> http://0.0.0.0:8000/api/v1/auth/token/refresh
 * get all bookmarks-`get` -> http://0.0.0.0:8000/api/v1/bookmarks/
 * add bookmarks-`post` -> http://0.0.0.0:8000/api/v1/bookmarks/
